@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+  {% include 'home/carousel.html' %}
+
+<div class="container">
+  <h5>Carousel Oluşturma Formu</h5>
+  <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" class="btn btn-danger">Update</button>
+  </form>
+</div>
+
+{% for i in messages %}
+  {{ i }}
+{% endfor %}
+
+
+
+{% endblock %}

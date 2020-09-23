@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">PK</th>
+      <th scope="col">Title</th>
+      <th scope="col">Cover</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in item %}
+    <tr>
+      <th scope="row">{{i.pk}}</th>
+      <td>{{i.title}}</td>
+      <td><img src="{{i.cover_image.url}}" width="100"/></td>
+      <td><a href="{% url  'carousel_update' i.pk %}" class="btn btn-primary">Edit</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}

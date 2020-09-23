@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from page.views import index
+from page.views import index,carousel_list,carousel_update
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('',index,name='index'),
     path('admin/', admin.site.urls),
+    path('carousel_list/',carousel_list,name="carousel_list"),
+    path('carousel_update/<int:pk>/',carousel_update,name="carousel_update")
+
 ]
 urlpatterns += static(
     settings.MEDIA_URL,document_root=settings.MEDIA_ROOT
