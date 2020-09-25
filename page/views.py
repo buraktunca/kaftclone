@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Carousel,Page
 from .forms import CarouselModelForm
 from django.contrib import messages
+from django.utils.text import slugify
 # Create your views here.
 def index(request):
     form = CarouselModelForm()
@@ -26,7 +27,8 @@ def carousel_update(request,pk):
     if request.method =="POST":
         form=CarouselModelForm(request.POST,request.FILES,instance=item)
         form.save()
-        return redirect('carousel_list')
-        
+        messages.success(request,"Başarılı Bir Şekilde Düzenlendi.")
+
+
     content={"item":item,"form":form}
     return render(request,"manage/carousel_update.html",content)

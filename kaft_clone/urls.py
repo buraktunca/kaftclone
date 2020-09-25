@@ -18,6 +18,7 @@ from django.urls import path
 from page.views import index,carousel_list,carousel_update
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
     path('',index,name='index'),
     path('admin/', admin.site.urls),
